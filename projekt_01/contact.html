@@ -20,7 +20,17 @@
     <main>
       <div class="form">
         <h1>Contact us!</h1>
-        <input type="text" />
+        <label name="email">Your email</label>
+        <input type="email" name="email" />
+        <label name="subject">Subject</label>
+        <select class="subject-select" name="subject">
+          <option default>Rent a car</option>
+          <option>Buy a car</option>
+          <option>Other</option>
+        </select>
+        <label name="message">Message</label>
+        <textarea name="message" rows="4"></textarea>
+        <button>Send</button>
       </div>
     </main>
     <footer>Szymon Żuk</footer>
