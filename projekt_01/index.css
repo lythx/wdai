@@ -73,6 +73,15 @@ footer {
   font-size: 1.7rem;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--darkblue);
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
 .button {
   cursor: pointer;
 }
@@ -93,6 +102,7 @@ footer {
   background-color: var(--darkblue);
   justify-content: flex-end;
   background-size: contain;
+  box-shadow: 0rem 0rem 1rem black
 }
 
 .gallery>div>div {
@@ -113,6 +123,7 @@ footer {
   margin: 10px;
   background-color: var(--darkblue-opaque);
   flex-direction: column;
+  box-shadow: 0rem 0rem 1rem black;
 }
 
 .form>* {
@@ -121,13 +132,7 @@ footer {
 }
 
 .form>h1 {
-  opacity: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: var(--white);
-  font-size: 2.5rem;
-  margin: 1rem;
   margin-bottom: 0;
 }
 
@@ -141,6 +146,7 @@ footer {
   margin: 0 1rem 0 1rem;
   height: 2.2rem;
   font-size: 1.2rem;
+  color: var(--darkblue);
 }
 
 .form>select {
@@ -148,10 +154,16 @@ footer {
   background-color: var(--white);
   padding-left: 0.4rem;
   font-size: 1.2rem;
+  color: var(--darkblue);
+}
+
+.form>select>option {
+  color: var(--darkblue);
 }
 
 .form>textarea {
   font-size: 1.2rem;
+  color: var(--darkblue);
 }
 
 .form>button {
@@ -163,4 +175,51 @@ footer {
   font-size: 2rem;
   align-self: center;
   margin-top: 2rem;
+}
+
+.home-main-article {
+  width: 700px;
+  height: 500px;
+  margin: 2rem;
+}
+
+.home-right-wrapper {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0;
+  color: var(--darkblue);
+  font-size: 2rem;
+  margin: 1.4rem;
+}
+
+p {
+  color: var(--darkblue);
+  font-size: 1.4rem;
+  margin: 1.4rem;
+}
+
+article {
+  background-color: var(--white);
+  padding: 0;
+  box-shadow: 0rem 0rem 1rem black;
+}
+
+article>button {
+  background-color: var(--blue);
+  border: none;
+  height: 4rem;
+  width: 100%;
+  color: var(--white);
+  font-size: 2rem;
+  align-self: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
 }
