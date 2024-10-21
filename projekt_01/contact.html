@@ -21,7 +21,7 @@
       <div class="form">
         <h1>Contact us!</h1>
         <label name="email">Email</label>
-        <input type="email" name="email"/>
+        <input type="email" name="email" oninput="(val)=>onFormChange('email', val)"/>
         <label name="subject">Subject</label>
         <select name="subject">
           <option default>Rent a car</option>

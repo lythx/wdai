@@ -6,6 +6,13 @@ const pageUrls = {
 
 const galleryImages = ['Audi_RS6', 'Ford_Fiesta_RS_WRC', 'Ford_GT40', 'McLaren_F1_GTR', 'Porshe_911']
 
+function onFormChange(input, value) {
+  console.log(input, value)
+  if(input == 'email') {
+    document.cookie = `email=${value}`
+  }
+}
+ 
 function openPage(page) {
   document.location = pageUrls[page]
 }
