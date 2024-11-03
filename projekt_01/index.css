@@ -329,9 +329,7 @@ p {
     color: var(--white);
     display: flex;
     align-items: center;
-    position: absolute;
     width: 100%;
-    bottom: 0;
   }
 
   .home-main-wrapper {
@@ -408,6 +406,8 @@ p {
     padding: 0.2rem;
     font-size: 1rem;
     min-height: 2rem;
+    bottom: 0;
+    position: absolute;
   }
 
   .home-main-right {
