@@ -17,20 +17,22 @@
       <div class="button" onclick="openPage('Gallery')">Gallery</div>
       <div class="button" onclick="openPage('Contact')">Contact</div>
     </nav>
-    <main>
+    <main class="contact-main">
       <div class="form">
         <h1>Contact us!</h1>
         <label name="email">Email</label>
-        <input type="email" name="email" oninput="(val)=>onFormChange('email', val)"/>
+        <input class="form-email" type="text" name="email" placeholder="email@example.com" oninput="(val)=>onFormChange('email', val)" />
         <label name="subject">Subject</label>
-        <select name="subject">
-          <option default>Rent a car</option>
-          <option>Buy a car</option>
-          <option>Other</option>
+        <select class="form-subject" name="subject">
+          <option value="none" disabled selected hidden>Select message subject</option>
+          <option value="rent">Rent a car</option>
+          <option value="buy">Buy a car</option>
+          <option value="report">Report issues</option>
+          <option value="other">Other</option>
         </select>
         <label name="message">Message</label>
-        <textarea name="message" rows="4"></textarea>
-        <button>Send</button>
+        <textarea class="form-message" name="message" rows="4" placeholder="Write your message here"></textarea>
+        <button onclick="validateForm()">Send</button>
       </div>
     </main>
     <footer>Szymon Żuk</footer>

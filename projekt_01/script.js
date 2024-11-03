@@ -7,11 +7,27 @@ const pageUrls = {
 const galleryImages = ['Audi_RS6', 'Ford_Fiesta_RS_WRC', 'Ford_GT40', 'McLaren_F1_GTR', 'Porshe_911']
 const galleryVideos = ['video']
 
-function onFormChange(input, value) {
-  console.log(input, value)
-  if (input == 'email') {
-    document.cookie = `email=${value}`
+function validateForm() {
+  const email = document.getElementsByClassName('form-email')?.[0]
+  if (email == undefined) {
+    console.log("Form email element undefined")
+    return
   }
+  const subject = document.getElementsByClassName('form-subject')?.[0]
+  if (email == undefined) {
+    console.log("Form subject element undefined")
+    return
+  }
+  const message = document.getElementsByClassName('form-message')?.[0]
+  if (message == undefined) {
+    console.log("Form message element undefined")
+    return
+  }
+
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+  email.style.border = !emailRegex.test(email.value) ? `2px solid red` : ''
+  subject.style.border = (subject.value === 'none') ? `2px solid red` : ''
+  message.style.border = (message.value.length === 0) ? `2px solid red` : ''
 }
 
 function openPage(page) {
@@ -35,6 +51,7 @@ function displayGallery() {
     videoEl.autoplay = true
     videoEl.muted = true
     videoEl.loop = true
+    videoEl.controls = true
     description.innerText = name
     wrapper.append(videoEl, description)
     galleryDiv.append(wrapper)
