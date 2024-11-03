@@ -21,9 +21,10 @@
       <div class="form">
         <h1>Contact us!</h1>
         <label name="email">Email</label>
-        <input class="form-email" type="text" name="email" placeholder="email@example.com" oninput="(val)=>onFormChange('email', val)" />
+        <input class="form-email" type="text" name="email" placeholder="email@example.com"
+          oninput="(val)=>onFormChange('email', val)" />
         <label name="subject">Subject</label>
-        <select class="form-subject" name="subject">
+        <select class="form-subject" name="subject" style="color: gray;" onchange="this.style.color = 'black'">
           <option value="none" disabled selected hidden>Select message subject</option>
           <option value="rent">Rent a car</option>
           <option value="buy">Buy a car</option>
