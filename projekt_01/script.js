@@ -4,8 +4,12 @@ const pageUrls = {
   'Contact': 'contact.html'
 }
 
-const galleryImages = ['Audi_RS6', 'Ford_Fiesta_RS_WRC', 'Ford_GT40', 'McLaren_F1_GTR', 'Porshe_911']
-const galleryVideos = ['Mercedes_300_SLR']
+const galleryVideos = ['Mercedes_300_SLR', 'Ford_Fiesta_RS_WRC']
+const galleryImages = ['Devel_Sixteen', 'Porshe_911', 'Aston_Martin_Vanquish', 'McLaren_F1_GTR',
+  'Chevrolet_Chevelle', 'Lotus_3-Eleven', 'Ford_Mustang_SVT', 'Pontiac_Firebird', 'Mercedes_Stirling_Moss',
+  'Ford_Mustang', 'Honda_S2000', 'Ford_GT40', 'Lincoln_Continental',
+  'Rolls-Royce_Phantom', 'Audi_RS6', 'Chevrolet_Camaro'
+]
 
 function validateForm() {
   const email = document.getElementsByClassName('form-email')?.[0]
@@ -56,9 +60,7 @@ function displayGallery() {
     wrapper.append(videoEl, description)
     galleryDiv.append(wrapper)
   }
-  for (const image of [...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages]
-    .map(a => ({ el: a, rand: Math.random() })).sort((a, b) => a.rand - b.rand).map(a => a.el)
-  ) {
+  for (const image of galleryImages) {
     const name = image.replaceAll("_", " ")
     const img = document.createElement("div")
     const description = document.createElement("div")

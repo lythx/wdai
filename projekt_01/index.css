@@ -93,6 +93,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
   height: 100%;
   padding: 10px;
 }
@@ -116,7 +117,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: var(--gray);
 }
 
@@ -186,7 +187,7 @@ h1 {
 .form>select {
   height: 2.2rem;
   background-color: var(--white);
-  padding-left: 0.4rem;
+  padding-left: 0.15rem;
   font-size: 1.2rem;
   color: var(--darkblue);
 }
@@ -261,7 +262,7 @@ h2 {
 
 p {
   color: var(--darkblue);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   margin: 1.4rem;
   margin-top: 0;
 }
@@ -412,6 +413,14 @@ p {
 
   .home-main-article {
     padding: 0.2rem;
+  }
+
+  .home-main-article>h2 {
+    font-size: 1.5rem;
+  }
+
+  .home-main-article>p {
+    font-size: 1rem;
   }
 
 }
