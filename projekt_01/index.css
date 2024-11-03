@@ -151,6 +151,7 @@ h1 {
 @media (max-height: 760px) {
   .contact-main {
     display: unset;
+    padding: 0;
   }
 
   .form {
