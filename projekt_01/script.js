@@ -5,7 +5,7 @@ const pageUrls = {
 }
 
 const galleryImages = ['Audi_RS6', 'Ford_Fiesta_RS_WRC', 'Ford_GT40', 'McLaren_F1_GTR', 'Porshe_911']
-const galleryVideos = ['video']
+const galleryVideos = ['Mercedes_300_SLR']
 
 function validateForm() {
   const email = document.getElementsByClassName('form-email')?.[0]
