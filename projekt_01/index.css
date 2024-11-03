@@ -410,6 +410,10 @@ p {
     position: absolute;
   }
 
+  main {
+    margin-bottom: 2rem;
+  }
+
   .home-main-right {
     padding: 2rem;
   }
