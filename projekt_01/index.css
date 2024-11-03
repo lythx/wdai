@@ -99,8 +99,8 @@ h1 {
 .gallery-image {
   display: flex;
   flex-direction: column;
-  width: 25rem;
-  height: 20rem;
+  width: 320px;
+  height: 260px;
   margin: 1rem;
   background-color: var(--darkblue);
   justify-content: flex-end;
@@ -110,7 +110,7 @@ h1 {
 
 .gallery-image>div,
 .gallery-video-wrapper>div {
-  height: 5rem;
+  height: 60px;
   background-color: var(--darkblue-opaque);
   display: flex;
   align-items: center;
@@ -122,8 +122,8 @@ h1 {
 .gallery-video-wrapper {
   display: flex;
   flex-direction: column;
-  width: 25rem;
-  height: 20rem;
+  width: 320px;
+  height: 260px;
   margin: 1rem;
   background-color: #555555;
   justify-content: flex-end;
@@ -131,8 +131,8 @@ h1 {
 }
 
 .gallery>video {
-  width: 25rem;
-  height: 20rem;
+  width: 320px;
+  height: 200px;
 }
 
 .form {
