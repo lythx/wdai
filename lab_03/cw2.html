@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cw 02</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-size: 30px;
+    }
+
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <script src="script2.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form">
+      <label>Minimalna długość</label>
+      <input class="min-pw">
+      <label>Maksymalna długość</label>
+      <input class="max-pw">
+      <label>Wielkie litery</label>
+      <input type="checkbox" class="big-letters" style="width: 30px; height: 30px">
+      <label>Znaki specjalne</label>
+      <input type="checkbox" class="special-chars" style="width: 30px; height: 30px">
+      <button onclick="generatePassword()">Wygeneruj hasło</button>
+    </div>
+  </div>
+</body>
+</html>
