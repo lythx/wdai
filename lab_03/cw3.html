@@ -10,7 +10,14 @@
 <body>
   <div class="wrapper">
     <div class="filter-sort-wrapper">
-      <input class="filter">
+      <label name="filter">Filter</label>
+      <input class="filter" name="filter" />
+      <label name="sort">Sort</label>
+      <select class="sort" name="sort">
+        <option value="default">Default</option>
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select>
     </div>
     <div class="grid">
       <div>Title</div>

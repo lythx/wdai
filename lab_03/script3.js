@@ -1,20 +1,42 @@
 const gridEl = document.getElementsByClassName('grid')?.[0]
 const filterEl = document.getElementsByClassName('filter')?.[0]
-let data
+const sortEl = document.getElementsByClassName('sort')?.[0]
+let fetchedData
 
 async function fetchAndDisplayData() {
-  data = await fetchData()
+  fetchedData = await fetchData()
   displayData()
 }
 
 async function fetchData() {
   const res = await fetch('https://dummyjson.com/products')
   const data = await res.json()
+  console.log(data)
   return data.products
 }
 
+function filterData(data) {
+  const filterString = filterEl.value
+  return data.filter(a => a.title.toLowerCase()
+    .startsWith(filterString.toLowerCase()))
+}
+
+function sortData(data) {
+  const order = sortEl.value
+  if (order === 'ascending') {
+    return [...data].sort((a, b) => a.title.localeCompare(b.title))
+  } else if (order === 'descending') {
+    return [...data].sort((a, b) => b.title.localeCompare(a.title))
+  } else {
+    return data
+  }
+}
+
 function displayData() {
-  for (const {title, description, images} of data) {
+  const filteredData = filterData(fetchedData)
+  const sortedData = sortData(filteredData)
+  gridEl.innerHTML = ""
+  for (const {title, description, images} of sortedData) {
     const image = images[0]
     const titleEl = document.createElement('div')
     const descriptionEl = document.createElement('div')
@@ -30,9 +52,12 @@ function displayData() {
   }
 }
 
-fetchAndDisplayData()
-
-filterEl.oninput = (event) => {
-  console.log(event.target.value)
+filterEl.oninput = () => {
+  displayData()
 }
 
+sortEl.onchange = () => {
+  displayData()
+}
+
+fetchAndDisplayData()

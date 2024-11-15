@@ -47,3 +47,7 @@
   height: 100px;
   width: auto;
 }
+
+input select {
+  width: 300px;
+}
