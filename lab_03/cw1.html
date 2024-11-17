@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,20 +22,8 @@
       justify-content: center;
     }
 
-    .animation {
-      width: 200px;
-      height: 312px;
-      animation: back 1.5s steps(10, end) infinite;
-      background: url(walkingdead.png);
-      position: absolute;
-      left: 200px;
-      top: -500x;
-    }
-
-    @keyframes back{
-      0% {
-        background-position-x: 2000px;
-      }
+    button {
+      margin: 10px;
     }
   </style>
   <script>
@@ -45,7 +34,7 @@
     function start() {
       if (startTimestamp === null) {
         startTimestamp = Date.now()
-      } 
+      }
       if (endTimestamp !== null) {
         startTimestamp = Date.now() - (endTimestamp - startTimestamp)
       }
@@ -82,7 +71,7 @@
       const timerElement = document.getElementsByClassName('timer')?.[0]
       if (timerElement === undefined) {
         console.log('Timer element undefined')
-        return 
+        return
       }
       let timeStr = ''
       if (seconds >= 60) {
@@ -95,6 +84,7 @@
     }
   </script>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="timer">0s</div>
@@ -103,4 +93,5 @@
     <button onclick="reset()">Reset</button>
   </div>
 </body>
+
 </html>
