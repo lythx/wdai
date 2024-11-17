@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+canvas {
+  width: 1680px;
+  height: 1050px;
+  cursor: url('./assets/aim_resized.png') 64 64, auto;
+}
+
+.pop-up {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: orange;
+  border: 10px solid purple;
+  border-radius: 30px;
+  flex-direction: column;
+  color: purple;
+  font-size: 40px;
+}
+
+.pop-up>button {
+  width: 150px;
+  height: 80px;
+  border: none;
+  border-radius: 10px;
+  background-color: purple;
+  color: orange;
+  font-size: 25px;
+}
