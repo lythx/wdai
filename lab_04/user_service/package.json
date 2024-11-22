@@ -1,0 +1,14 @@
+{
+  "name": "user-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm app.js"
+  },
+  "dependencies": {
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "sequelize": "^6.37.5",
+    "sqlite": "^5.1.1"
+  }
+}
