@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.2",
     "sequelize": "^6.37.5",
-    "sqlite": "^5.1.1"
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }

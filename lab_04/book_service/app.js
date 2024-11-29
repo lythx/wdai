@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -40,6 +39,10 @@ app.get("/api/books/:book", async (req, res) => {
 })
 
 app.post("/api/books", async (req, res) => {
+  if (validateAndParseToken(req) === false) {
+    res.status(401)
+    return
+  }
   const newBook = await Book.create(
     { title: req.body.title, author: req.body.author, year: req.body.year }
   ).catch(err => err)
@@ -52,7 +55,11 @@ app.post("/api/books", async (req, res) => {
 })
 
 app.delete("/api/books/:book", async (req, res) => {
-  const book = await Book.deleteByPk(req.body.id).catch(err => err)
+  if (validateAndParseToken(req) === false) {
+    res.status(401)
+    return
+  }
+  const book = await Book.deleteByPk(req.book).catch(err => err)
   if (book instanceof Error) {
     res.status(400).send("No such book")
     return
@@ -60,23 +67,6 @@ app.delete("/api/books/:book", async (req, res) => {
   db.sync()
   res.send(200)
 })
-
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
 
 app.listen(5001, () => {
   console.log("Book service started")
