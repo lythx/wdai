@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/api/orders/:user", async (req, res) => {
-  const orders = await Order.findAll({ where: { userId: req.user }})
+  const orders = await Order.findAll({ where: { userId: req.params.user }})
   if (orders instanceof Error) {
     res.status(500)
     return 
@@ -37,7 +37,12 @@ app.get("/api/orders/:user", async (req, res) => {
 app.post("/api/orders", async (req, res) => {
   const data = validateAndParseToken(req)
   if (data === false) {
-    res.status(401)
+    res.sendStatus(401)
+    return
+  }
+  const bookExistsRes = await fetch(`http://127.0.0.1:5001/api/books/${req.body.bookId}`)
+  if (bookExistsRes.status !== 200) {
+    res.status(400).send('No such book')
     return
   }
   const newOrder = await Order.create(
@@ -52,32 +57,33 @@ app.post("/api/orders", async (req, res) => {
 })
 
 app.delete("/api/orders/:order", async (req, res) => {
-  if (validateAndParseToken(req) === false) {
-    res.status(401)
+  if (!validateAndParseToken(req)) {
+    res.sendStatus(401)
     return
   }
-  const order = await Order.deleteByPk(req.order).catch(err => err)
-  if (order instanceof Error) {
+  const order = await Order.findByPk(req.params.order).catch(err => err)
+  if (order instanceof Error || order === null) {
     res.status(400).send("No such order")
     return
   }
+  order.destroy()
   db.sync()
   res.send(200)
 })
 
 app.patch("/api/orders/:order", async (req, res) => {
-  if (validateAndParseToken(req) === false) {
-    res.status(401)
+  if (!validateAndParseToken(req)) {
+    res.sendStatus(401)
     return
   }
-  const order = await Order.findByPk(req.order).catch(err => err)
-  if (order instanceof Error) {
+  const order = await Order.findByPk(req.params.order).catch(err => err)
+  if (order instanceof Error || order === null) {
     res.status(400).send("No such order")
     return
   }
   order.update({ bookId: req.body.bookId, quantity: req.body.quantity })
   db.sync()
-  res.send(200)
+  res.sendStatus(200)
 })
 
 app.listen(5002, () => {

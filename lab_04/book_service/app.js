@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const Sequelize = require('sequelize');
+const {validateAndParseToken} = require('./tokenService')
 
 const db = new Sequelize('sqlite::memory:');
 const Book = db.define('Book', {
@@ -30,8 +31,8 @@ app.get("/api/books", async (req, res) => {
 })
 
 app.get("/api/books/:book", async (req, res) => {
-  const book = await Book.findByPk(req.id).catch(err => err)
-  if (book instanceof Error) {
+  const book = await Book.findByPk(req.params.book).catch(err => err)
+  if (book instanceof Error || book === null) {
     res.status(400).send("No such book")
     return 
   }
@@ -39,8 +40,8 @@ app.get("/api/books/:book", async (req, res) => {
 })
 
 app.post("/api/books", async (req, res) => {
-  if (validateAndParseToken(req) === false) {
-    res.status(401)
+  if (!validateAndParseToken(req)) {
+    res.sendStatus(401)
     return
   }
   const newBook = await Book.create(
@@ -55,17 +56,18 @@ app.post("/api/books", async (req, res) => {
 })
 
 app.delete("/api/books/:book", async (req, res) => {
-  if (validateAndParseToken(req) === false) {
-    res.status(401)
+  if (!validateAndParseToken(req)) {
+    res.sendStatus(401)
     return
   }
-  const book = await Book.deleteByPk(req.book).catch(err => err)
-  if (book instanceof Error) {
+  const book = await Book.findByPk(req.params.book).catch(err => err)
+  if (book instanceof Error || book === null) {
     res.status(400).send("No such book")
     return
   }
+  book.destroy()
   db.sync()
-  res.send(200)
+  res.sendStatus(200)
 })
 
 app.listen(5001, () => {

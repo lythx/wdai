@@ -37,7 +37,7 @@ app.post("/api/login", async (req, res) => {
   const user = await User.findOne(
     { where: { email: req.body.email, password: req.body.password } }
   ).catch(err => err)
-  if (user instanceof Error) {
+  if (user instanceof Error || user === null) {
     res.status(400).send("No such user")
     return 
   }
