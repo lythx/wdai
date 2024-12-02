@@ -18,7 +18,7 @@ function validateAndParseToken(req) {
 }
 
 function generateToken(userId) {
-  const data = {time: Date(), userId}
+  const data = {time: Date.now(), userId}
   return jwt.sign(data, jwtSecretKey);
 }
 

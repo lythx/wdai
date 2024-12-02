@@ -4,7 +4,10 @@ const Sequelize = require('sequelize');
 const {generateToken} = require("./tokenService.js")
 
 const app = express();
-const db = new Sequelize('sqlite::memory:');
+const db = new Sequelize({
+  dialect: 'sqlite',
+  storage: 'database.sqlite'
+});
 const User = db.define('User', {
   email: {
     type: Sequelize.STRING,

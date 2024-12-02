@@ -4,7 +4,10 @@ const app = express();
 const Sequelize = require('sequelize');
 const {validateAndParseToken} = require('./tokenService')
 
-const db = new Sequelize('sqlite::memory:');
+const db = new Sequelize({
+  dialect: 'sqlite',
+  storage: 'database.sqlite'
+});
 const Book = db.define('Book', {
   title: {
     type: Sequelize.STRING,

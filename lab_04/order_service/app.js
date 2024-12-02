@@ -4,7 +4,10 @@ const Sequelize = require('sequelize');
 const {validateAndParseToken} = require('./tokenService');
 
 const app = express();
-const db = new Sequelize('sqlite::memory:');
+const db = new Sequelize({
+  dialect: 'sqlite',
+  storage: 'database.sqlite'
+});
 const Order = db.define('Order', {
   userId : {
     type: Sequelize.INTEGER,
