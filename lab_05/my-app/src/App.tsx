@@ -15,6 +15,7 @@ import StudentManager from './components/studenci/StudentManager';
 import Odliczanie from './components/efekty/Odliczanie';
 import Tytul from './components/efekty/Tytul';
 import Komentarze from './components/produkty/Komentarze';
+import LicznikLocalStorage from './components/liczniki/LicznikLocalStorage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Tytul />
       <Odliczanie />
       <Komentarze />
+      <LicznikLocalStorage />
     </div>
   );
 }
