@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper>div {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.add {
+  width: 400px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.add>label {
+  font-size: 25px;
+}
+
+.add>input {
+  width: 300px;
+  font-size: 20px;
+}
+
+.add>textarea {
+  font-size: 20px;
+  resize: none;
+  height: 300px;
+  width: 300px;
+}
+
+.add>button {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.home {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home>h1 {
+  font-size: 50px;
+}
+
+.home>a {
+  font-size: 40px;
+}
+
+.article {
+  width: 700px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article>h1 {
+  font-size: 50px;
+}
+
+.article>p {
+  font-size: 20px;
+  width: 600px;
+  height: 600px;
+  word-break: break-all;
+}
+
+.blog {
+  width: 500px;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  overflow-y: scroll;
+}
+
+.blog>* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  height: 60px;
+}
