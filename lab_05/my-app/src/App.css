@@ -41,3 +41,60 @@
 td {
   border: 1px solid black;
 }
+
+.comment-container {
+  width: 400px;
+  height: 85px;
+  border: 2px solid black;
+  position: relative;
+  margin: auto;
+}
+
+.comment-container>* {
+  position: absolute;
+}
+
+.comment-user {
+  top: 5px;
+  left: 10px;
+  font-size: 18px;
+}
+
+.comment-body {
+  font-size: 16px;
+  top: 30px;
+  left: 10px;
+}
+
+.comment-id {
+  left: 10px;
+  bottom: 5px;
+  font-size: 14px;
+}
+
+.comment-likes {
+  bottom: 5px;
+  right: 10px;
+  font-size: 16px;
+  user-select: none;
+}
+
+.comment-likebt {
+  bottom: 7px;
+  right: 55px;
+  width: 16px;
+  height: 16px;
+  background-image: url("../public/like.png");
+  background-size: contain;
+  cursor: pointer;
+}
+
+.comment-dislikebt {
+  bottom: 7px;
+  right: 32px;
+  width: 16px;
+  height: 16px;
+  background-image: url("../public/dislike.png");
+  background-size: contain;
+  cursor: pointer;
+}

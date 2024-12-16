@@ -14,6 +14,7 @@ import Studenci from './components/studenci/Studenci';
 import StudentManager from './components/studenci/StudentManager';
 import Odliczanie from './components/efekty/Odliczanie';
 import Tytul from './components/efekty/Tytul';
+import Komentarze from './components/produkty/Komentarze';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Licznik />
       <Tytul />
       <Odliczanie />
+      <Komentarze />
     </div>
   );
 }

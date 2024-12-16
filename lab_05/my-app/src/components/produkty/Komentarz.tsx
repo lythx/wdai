@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-interface KomentarzProps {
+export interface Comment {
   id: number,
   body: string,
   postId: number,
@@ -12,14 +12,16 @@ interface KomentarzProps {
   }
 }
 
-export default function Komentarz({ id, body, postId, likes, user }: KomentarzProps) {
-  const [num, setNum] = useState(0)
-  useEffect(() => console.log('Hello world'), [])
-  useEffect(() => console.log(num), [num])
+export default function Komentarz({ data: { id, body, postId, likes: initialLikes, user } }: { data: Comment }) {
+  const [likes, setLikes] = useState(initialLikes)
   return (
-    <div style={{ margin: '10px' }}>
-      <div>{num}</div>
-      <button onClick={() => setNum(num + 1)} >Dodaj</button>
+    <div className={"comment-container"} style={{ marginTop: '10px' }}>
+      <div className={"comment-user"}>{user.fullName} - @{user.username} - user id: {user.id}</div>
+      <div className={"comment-body"}>{body}</div>
+      <div className={"comment-id"}>comment id: {id} - post id: {postId}</div>
+      <div className={"comment-likebt"} onClick={() => setLikes(prev => prev + 1)}></div>
+      <div className={"comment-dislikebt"} onClick={() => setLikes(prev => prev - 1)}></div>
+      <div className={"comment-likes"}>{likes}</div>
     </div>
   )
 }
