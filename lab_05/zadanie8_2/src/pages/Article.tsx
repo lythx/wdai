@@ -7,7 +7,7 @@ export default function Article() {
   const allArticles: IArticle[] = JSON.parse(localStorage.getItem("articles") ?? "[]")
   const article = allArticles.find(a => a.id === Number(id))
   if (article === undefined) {
-    return (<div>No such article</div>)
+    return (<div style={{margin: '10px', padding: '10px'}}>No such article</div>)
   }
   return (
     <div className={"article"}>
